@@ -77,7 +77,7 @@ class ImageAddButton extends Component {
         return (
             <div className={editorStyles.headlineButtonWrapper} onMouseDown={this.preventBubblingUp}>
                 <input type="file" id="fileElem" style={{display:"none"}} onChange={this.handleFiles} />
-                <label  className="fa fa-image" htmlFor="fileElem" >X
+                <label  className="fa fa-image" htmlFor="fileElem" >
                 </label>
             </div>
         );
@@ -113,7 +113,6 @@ const inlineToolbarPlugin = createInlineToolbarPlugin({
         UnderlineButton,
         CodeButton,
         Separator,
-        ImageAddButton,
         UnorderedListButton,
         OrderedListButton,
         BlockquoteButton,
@@ -134,6 +133,12 @@ const plugins = [
     imagePlugin
 ];
 
+function myBlockStyleFn(contentBlock) {
+    const type = contentBlock.getType();
+    if (type === 'blockquote') {
+        return 'superFancyBlockquote';
+    }
+}
 
 const text = 'Once you click into the text field the sidebar plugin will show up …';
 
@@ -157,19 +162,17 @@ export default class MyDraftEditor extends Component {
     render() {
         return (
             <div className={editorStyles.editor} onClick={this.focus}>
+
                 <Editor
                     editorState={this.state.editorState}
                     onChange={this.onChange}
                     plugins={plugins}
+                    blockStyleFn={myBlockStyleFn}
                     ref={(element) => { this.editor = element; }}
                 />
                 <AlignmentTool />
                 <SideToolbar />
                 <InlineToolbar />
-                <div style={{background:"#778899"}}>
-                    <ImageAddButton />
-                </div>
-
             </div>
         );
     }

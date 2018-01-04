@@ -12,9 +12,6 @@ class App extends Component {
     return (
         <div className={style.App}>
           <MyDraftEditor />
-            <div className="best">
-                dddddd
-            </div>
         </div>
     );
   }

@@ -1,3 +1,12 @@
 .best{
     background:#666666;
 }
+.superFancyBlockquote {
+    border-left: 5px solid #4ca8de;
+    color: #555;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 10px 0 10px 20px;
+    background-color: #e2f2ff;
+    font-family: 'Hoefler Text', 'Georgia', serif;
+}
