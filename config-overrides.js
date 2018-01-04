@@ -15,4 +15,3 @@ module.exports = function override(config, env) {
      config = rewireLessModule(config, env);
      //config = rewireCssModules(config, env);
      return config;
-};
