@@ -17,12 +17,13 @@ import {
 import createSideToolbarPlugin from 'draft-js-side-toolbar-plugin';
 import createInlineToolbarPlugin, { Separator } from 'draft-js-inline-toolbar-plugin';
 import 'draft-js-image-plugin/lib/plugin.css';
-import editorStyles from './editorStyles.module.css';
-import buttonStyles from './buttonStyles.module.css';
-import toolbarStyles from './toolbarStyles.module.css';
-
-import blockTypeSelectStyles from './blockTypeSelectStyles.module.css';
+import editorStyles from './editorStyles.css';
+import buttonStyles from './buttonStyles.css';
+import toolbarStyles from './toolbarStyles.css';
+import fontstyle from "font-awesome/css/font-awesome.min.css";
+import blockTypeSelectStyles from './blockTypeSelectStyles.css';
 import 'draft-js-inline-toolbar-plugin/lib/plugin.css';
+import 'draft-js-alignment-plugin/lib/plugin.css';
 import styled from  "styled-components";
 import BlockTypeSelect  from  "draft-js-side-toolbar-plugin/lib/components/BlockTypeSelect";
 
@@ -76,7 +77,7 @@ class ImageAddButton extends Component {
         return (
             <div className={editorStyles.headlineButtonWrapper} onMouseDown={this.preventBubblingUp}>
                 <input type="file" id="fileElem" style={{display:"none"}} onChange={this.handleFiles} />
-                <label  className="fa fa-image" htmlFor="fileElem" >
+                <label  className="fa fa-image" htmlFor="fileElem" >X
                 </label>
             </div>
         );
@@ -165,6 +166,10 @@ export default class MyDraftEditor extends Component {
                 <AlignmentTool />
                 <SideToolbar />
                 <InlineToolbar />
+                <div style={{background:"#778899"}}>
+                    <ImageAddButton />
+                </div>
+
             </div>
         );
     }
